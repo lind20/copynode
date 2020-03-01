@@ -12,7 +12,14 @@
 
     安装指令：npm install element-ui --save
 
-3. 
+3. NProgress是页面跳转是出现在浏览器顶部的进度条
+
+    安装指令：$ npm install --save nprogress 或者 $ yarn add nprogress
+
+    //用法：NProgress.start();
+            NProgress.done();
+
+             
 
 > A Vue.js project
 

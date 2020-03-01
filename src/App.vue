@@ -53,4 +53,9 @@ export default {
   color: #333;
   box-shadow: 0px 6px 10px #333;
 }
+
+/* 自定义颜色 */
+#nprogress .bar {
+ background: #ffd04b !important;
+}
 </style>
