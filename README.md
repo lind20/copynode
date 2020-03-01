@@ -1,5 +1,19 @@
 # copynode
 
+## 案列分析
+
+### 本案例使用到的插件
+
+1. Vue路由
+
+    安装时选择路由就好
+
+2. element-ui饿了么开发的组件库
+
+    安装指令：npm install element-ui --save
+
+3. 
+
 > A Vue.js project
 
 ## Build Setup
