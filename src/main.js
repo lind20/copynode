@@ -10,12 +10,15 @@ Vue.use(elementUI)
 import './assets/style/reset.css'
 import './assets/style/responsive.css'
 
+import store from './store'
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

@@ -16,6 +16,9 @@ export default {
       aboutData
     }
   },
+  created(){
+    document.title = '关于'
+  },
   components:{
     commonHeader,
     commonContent

@@ -1,36 +1,64 @@
 <template>
   <div class="home">
-    <el-tabs :tab-position="tabPosition">
-      <el-tab-pane label="全部">全部</el-tab-pane>
-      <el-tab-pane label="精华">精华</el-tab-pane>
-      <el-tab-pane label="分享">分享</el-tab-pane>
-      <el-tab-pane label="问答">问答</el-tab-pane>
-      <el-tab-pane label="招聘">招聘</el-tab-pane>
-      <el-tab-pane label="测试">客户端测试</el-tab-pane>
-    </el-tabs>
+    <el-row>
+      <el-col :span="3">
+          <homeTab/>
+      </el-col>
+      <el-col :span="21">
+        <homeContent/>
+        
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
+import homeTab from './home-tab'
+import homeContent from './home-content'
+
 export default {
-    data() {
-      return {
-        tabPosition: 'left'
-      };
-    }
+  data() {
+    return {
+      // tabPosition: "left"
+    };
+  },
+  created(){
+    document.title = '首页-全部'
+  },
+  computed: {
+    // topics(){
+    //   return this.$store.state.topics
+    // }
+  },
+  methods: {
+    // getTopics(){
+    //   this.$store.dispatch('getTopics')
+    // }
+  },
+  components:{
+    homeTab,
+    homeContent
+  }
 };
 </script>
 
 <style >
 .home {
 }
-.el-tabs{
+.el-row {
+  height: 100%;
+  margin-bottom: 20px;
 }
-.el-tabs .el-tabs__item.is-left{
-    color: rgb(128,189,1);
-    text-align: center;
+.el-col {
+  height: 100%;
 }
-.el-tabs .el-tabs__item.is-active{
-    color: #409EFF;
+.el-col-3{
+  background: #FFF;
+  text-align: center;
+  border-right: 1px solid #eee;
 }
+.el-col-21{
+  min-width: 400px;
+}
+
 </style>

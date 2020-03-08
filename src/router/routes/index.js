@@ -1,21 +1,40 @@
+import home from '../../components/home/home'
+import about from '../../components/about/about'
+
 export default [
     {
       path: '*',
-      redirect: '/home'
+      redirect: '/home/all'
     },
     {
       path: '/about',
       name: 'about',
-      component: ()=>import ('../../components/about/about')
+      component: about
     },
     {
       path: '/home',
       name: 'home',
-      component: ()=>import ('../../components/home/home')
+      component: home,
+      children: [
+        {
+          path:'/home/:aid',
+          component: ()=>import('../../components/home/home-tab.vue')
+        }
+      ]
     },
     {
       path: '/new',
       name: 'new',
-      component: ()=>import ('../../components/new/new')
+      component: ()=>import('../../components/new/new')
+    },
+    {
+      path: '/api',
+      name: 'api',
+      component: ()=>import('../../components/api/api.vue')
+    },
+    {
+      path: '/details',
+      name: 'details',
+      component: ()=>import('../../components/details/details.vue')
     }
   ]

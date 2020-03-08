@@ -1,7 +1,7 @@
 <template>
     <div class="common-header">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/' }">主页</el-breadcrumb-item>
         <el-breadcrumb-item>{{secondTitle}}</el-breadcrumb-item>
       </el-breadcrumb>
     </div>

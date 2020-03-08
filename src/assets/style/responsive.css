@@ -13,29 +13,23 @@
     .main-header .el-icon-arrow-down {
         font-size: 12px;
     }
+    .main-header .el-dropdown-menu__item{
+        padding: 0 !important;
+    }
 
-    .el-tabs--left .el-tabs__item.is-left{
-        display: inline-block;
-        width: 16.8%;
+    .small-page{
+        display: block;
     }
-    .el-tabs--left .el-tabs__header.is-left{
-        float: none;
-        width: 100%;
-    }
-    .el-tabs__nav{
-        
-    }
-    .el-tabs__item{
-        padding: 0;
-    }
-    .el-tabs--left .el-tabs__active-bar.is-left, .el-tabs--left .el-tabs__nav-wrap.is-left::after{
+    .big-page{
         display: none;
     }
-    .home .el-tabs .el-tabs__item.is-active{
-        color: rgb(255, 208, 75);
-        border-bottom: 2px solid rgb(255, 208, 75);
-        background-color: rgb(212, 222, 243);
-        font-size: 20px;
+
+    .loading{
+        width: 40%;
+        
+    }
+    .load-image{
+        background-size: 220px 30px;
     }
 }
 @media all and (min-width:800px){
@@ -45,4 +39,70 @@
     .main-header .el-dropdown{
         display: none;
     }
+    .small-page{
+        display: none;
+    }
+}
+@media all and (max-width:1300px){
+    .last_time img{
+        display: none;
+    }
+}
+
+@media all and (max-width:1000px){
+    .home .el-col-3{
+        float: none !important;
+        width: 100%;
+        height: 50px;
+    }
+    .home .el-col-21{
+        float: none;
+        width: 100%;
+    }
+    .el-menu{
+        border-bottom: 1px solid #eee;
+    }
+    .el-menu .el-menu-item{
+        float: left;
+        width: 16.6%;
+        text-align: center;
+    }
+    .is-active{
+        border-right: none !important;
+        border-bottom: 3px solid #ffd04b;
+    }
+
+    .home-content .topic .topic_list{
+        height: 70px;
+
+    }
+    .user_avatar,
+    .put_top,
+    .topic_title,
+    .reply_count{
+        position: absolute;
+    }
+    .topic_title_wrapper .user_avatar{
+        top: 15px;
+        left: 0;
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .topic_title_wrapper .put_top{
+        top: 25%;
+        left: 55px;
+    }
+    .topic_title_wrapper .topic_title{
+        height: 30px !important;
+        top: 0;
+        left: 100px;
+    }
+    .topic_title_wrapper .reply_count{
+        height:20px !important;
+        left: 100px;
+        transform: translateY(40px);
+        line-height: 20px !important;
+        text-align: left !important;
+    }
+    
 }

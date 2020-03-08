@@ -16,6 +16,9 @@ export default {
             nodeData
         }
     },
+    created(){
+      document.title = '新手入门'
+    },
     components:{
         commonHeader,
         commonContent
