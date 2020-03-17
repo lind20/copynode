@@ -1,7 +1,7 @@
 <template>
     <div class="common-header">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">主页</el-breadcrumb-item>
+        <el-breadcrumb-item v-if="show" :to="{ path: '/' }">主页</el-breadcrumb-item>
         <el-breadcrumb-item>{{secondTitle}}</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
@@ -9,16 +9,16 @@
 
 <script>
 export default {
-    props:['secondTitle']
+    props:['secondTitle','show']
 }
 </script>
 
 <style scoped>
     .common-header{
         height: 40px;
-        margin-bottom: 10px;
+        /* margin-bottom: 10px; */
         padding-left: 15px;
-        background-color: #eee;
+        background-color: rgb(246,246,246);
     }
     .el-breadcrumb{
         line-height: 40px;

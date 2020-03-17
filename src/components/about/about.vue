@@ -1,12 +1,12 @@
 <template>
   <div class="about">
-    <common-header :secondTitle="'关于'"/>
+    <common-header :secondTitle="'关于'" show="1"/>
     <common-content :data="aboutData"/>
   </div>
 </template>
 
 <script>
-import aboutData from './data.js'
+import aboutData from './aboutData.js'
 import commonHeader from '../common/common-header'
 import commonContent from '../common/common-content'
 export default {
@@ -27,7 +27,10 @@ export default {
 </script>
 
 <style scoped>
-.about {
+.about >>> a {
+  color: #ffd04b;
 }
-
+.about >>> a:hover{
+        text-decoration: underline;
+    }
 </style>

@@ -98,7 +98,7 @@ export default {
     
   },
   mounted(){
-    console.log(this.activeIndex)
+    // console.log(this.activeIndex)
   },
   watch:{
     $route(to){
@@ -138,12 +138,15 @@ export default {
   width: 120px;
   padding: 0 !important;
 }
-.el-dropdown-menu{
-  width: 170px;
-}
 .el-dropdown-menu__item{
-  width: 170px;
+  width: 150px;
   padding: 0;
+}
+.el-dropdown-menu__item div{
+  padding-left: 40px;
+}
+.el-dropdown-menu__item--divided:before{
+  height: 0;
 }
 .el-menu-item [class^=el-icon-]{
     margin-right: 0;

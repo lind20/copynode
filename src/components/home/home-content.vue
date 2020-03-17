@@ -4,9 +4,9 @@
     <ul class="topic" v-show="success?false:true">
       <li class="topic_list" v-for="item in initTopics" :key="item.id">
           <div class="topic_title_wrapper">
-              <a href="" class="user_avatar" :title="item.author.loginname">
-                  <img :src="item.author.avatar_url" alt="">
-              </a>
+              <router-link :to="'/user/'+item.author.loginname" class="user_avatar" :title="item.author.loginname">
+                  <img :src="item.author.avatar_url" :alt="item.author.loginname">
+              </router-link>
 
               <div class="reply_count">
                   <span class="count_of_replies" title="回复数">{{item.reply_count}}</span>
@@ -17,14 +17,10 @@
               <div class="put_top">
                   <homeTag :tag="item" :id="$route.params.aid"/>
               </div>
+              <router-link class="topic_title" :to="{path:'/details/'+item.id,query:{type:$route.params.aid}}">{{item.title}}</router-link>
 
-              <a class="topic_title" @click="handleDetails">
-                  {{item.title}}
-              </a>
-
-              <a href="" class="last_time">
-                  <img class="user_small_avatar" src="../../assets/style/pc.jpg" alt="">
-                  <span class="last_active_time">{{item.create_at - item.last_reply_at}}</span>
+              <a class="last_time">
+                  <span class="last_active_time">{{item.create_at.substr(0,10)}}</span>
               </a>
           </div>
       </li>
@@ -38,21 +34,22 @@ import homePage from './home-page'
 import homeTag from './home-tag'
 import homeLoading from './home-loading'
 
-import {mapState,mapActions} from 'vuex'
-import {asyncInit} from '../../store/type.js'
+import {mapState,mapGetters,mapActions} from 'vuex'
+import {init,asyncInit,date} from '../../store/type.js'
 
 export default {
-
+    data(){
+        return{
+        }
+    },
     computed:{
         ...mapState('initTopics',['initTopics','success']),
-        ...mapState('tabStyle',['tabName'])
+        ...mapState('tabStyle',['tabName']),
+        ...mapGetters('initTopics',[date])
     },
-    mounted(){
-        // this.asyncInit()
-        // if(this.initTopics.success){
-        //     console.log(this.initTopics)
-        // }
-        console.log(this.tabName)
+    created(){
+        // this.asyncInit(this.$route.params.aid)
+        // sessionStorage.setItem('route',this.$route.params.aid)
     },
     methods:{
         ...mapActions('initTopics',[asyncInit]),
@@ -69,14 +66,8 @@ export default {
             }else{
                 document.title = '加载中...'
             }
-            this.asyncInit(aid)
-            immediate: true
+            this.asyncInit(this.$route.params.aid)
         },
-        handleDetails(){
-            this.$router.push({
-                name:'details'
-            })
-        }
     },
     watch:{
         //监听路由的变化，当路由变化时，执行handle()函数
@@ -99,10 +90,11 @@ ul{
 .home-content {
     width: 100%;
     height: 100%;
+    border-left: 1px solid #eee;
 }
 .topic{
     margin-bottom: 30px;
-    box-shadow:0px 11px 10px #f8f1de;
+    box-shadow:3px 11px 10px #f8f1de;
 }
 .topic_list{
     width: 100%;
@@ -116,14 +108,16 @@ ul{
     
 }
 .topic_title_wrapper .user_avatar{
-    width: 30px;
-    height: 30px;
+    height: 100%;
     vertical-align: middle;
+    font-size: 8px;
+    line-height: 45px;
 }
 .topic_title_wrapper .user_avatar img{
-    width: 100%;
-    height: 100%;
+    width: 30px;
+    height: 30px;
     border-radius: 5px;
+    vertical-align: middle;
 }
 .topic_title_wrapper .reply_count{
     display: inline-block;

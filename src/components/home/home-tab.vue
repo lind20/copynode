@@ -47,9 +47,13 @@ export default {
 }
 .el-menu{
     width: 100%;
+    /* height:100% !important; */
 }
 .el-menu .el-menu-item{
     padding: 0 !important;
+}
+.el-menu .el-menu-item a{
+  width: 100%;
 }
 .is-active{
     border-right:3px solid #ffd04b;

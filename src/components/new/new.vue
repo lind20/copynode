@@ -1,6 +1,6 @@
 <template>
   <div class="new">
-    <common-header :secondTitle="'新手入门'" />
+    <common-header :secondTitle="'新手入门'" show="1"/>
     <common-content :data="nodeData"/>
   </div>
 </template>
@@ -27,6 +27,10 @@ export default {
 </script>
 
 <style scoped>
-.new {
+.new >>> a {
+  color: #ffd04b;
+}
+.new >>> a:hover{
+  text-decoration: underline;
 }
 </style>

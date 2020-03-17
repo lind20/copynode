@@ -33,8 +33,13 @@ export default [
       component: ()=>import('../../components/api/api.vue')
     },
     {
-      path: '/details',
+      path: '/details/:id',
       name: 'details',
       component: ()=>import('../../components/details/details.vue')
+    },
+    {
+      path: '/user/:id',
+      name: 'user',
+      component: ()=>import('../../components/users/users.vue')
     }
   ]

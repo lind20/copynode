@@ -1,10 +1,7 @@
 <template>
-  <div class="home-loading">
+  <div class="details-loading">
       <div class="loading">
           <em class="load-image"></em>
-          <!-- <transition name="fade">
-              <p v-show="textShow" class="load-text">正在连接... </p>
-          </transition> -->
       </div>
   </div>
 </template>
@@ -26,8 +23,7 @@ export default {
 </script>
 
 <style scoped>
-.home-loading {
-    height: 400px;
+.details-loading {
     text-align: center;
 }
 .loading{
@@ -37,9 +33,8 @@ export default {
 }
 .load-image{
     display: block;
-    height: 100px;
-    margin: 200px 0 50px;
-    background: #fff url('../../assets/image/loadings.png') no-repeat center/620px 90px;
+    height: 229px;
+    background: #fff url('../../assets/image/userload.png') no-repeat center/100% 229px;
 }
 .load-text{
     margin-top: 20px;

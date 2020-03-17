@@ -10,7 +10,6 @@ Vue.use(Router)
 
 const router = new Router({
   routes,
-  mode:'history'
 })
 
 // 配置NProgress插件

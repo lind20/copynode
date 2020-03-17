@@ -1,39 +1,37 @@
 <template>
   <div class="home-page">
     <el-pagination
-      class="big-page"
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-      :current-page="currentPage4"
-      :page-sizes="[10, 30, 50, 100]"
-      :page-size="100"
+      @size-change="SizeChange"
+      @current-change="CurrentChange"
       layout="total, sizes, prev, pager, next, jumper"
-      :total="400"
+      :total="1000"
     >
     </el-pagination>
 
-    <el-pagination class="small-page" small layout="prev, pager, next" :total="50">
+    <el-pagination class="small-page" @size-change="SizeChange" @current-change="CurrentChange" small layout="prev, pager, next" :total="1000">
     </el-pagination>
   </div>
 </template>
 
 <script>
+import {mapState,mapMutations,mapActions} from 'vuex'
+import {handleSizeChange,handleCurrentChange,asyncInit} from '@/store/type.js'
 export default {
+  name:'home-page',
+  computed:mapState('initTopics',['initTopics']),
   methods: {
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
+    SizeChange (val){
+      console.log(this.initTopics.length)
+      this.handleSizeChange(val)
+      this.asyncInit(this.$route.params.aid)
     },
-    handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
-    }
-  },
-  data() {
-    return {
-      currentPage1: 5,
-      currentPage2: 5,
-      currentPage3: 5,
-      currentPage4: 4
-    };
+    CurrentChange (val){
+      console.log(222)
+      this.handleCurrentChange(val)
+      this.asyncInit(this.$route.params.aid)
+    },
+    ...mapMutations('initTopics', [handleSizeChange,handleCurrentChange]),
+    ...mapActions('initTopics', [asyncInit]),
   }
 };
 </script>
@@ -42,7 +40,8 @@ export default {
 .home-page {
 }
 .el-pagination {
-    margin-left: 10px;
+    margin: 10px;
+    padding-bottom: 20px;
 }
 .small-page{
     text-align: center;

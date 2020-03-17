@@ -51,7 +51,7 @@ export default {
   margin: auto;
   padding: 0;
   color: #333;
-  box-shadow: 0px 6px 10px #333;
+  box-shadow: 0px 6px 10px rgb(231, 230, 230);
 }
 
 /* 自定义颜色 */

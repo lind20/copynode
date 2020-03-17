@@ -17,6 +17,7 @@ export default {
 
 <style scoped>
 .common-content {
+  padding: 10px 0;
 }
 .common-content .common-text {
   padding: 10px;
